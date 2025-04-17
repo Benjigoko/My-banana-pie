@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Heart Explosion with Unlimited Floating Hearts</title>
+
+  <!-- ======= STYLES ======= -->
+  <style>
+    body {
+      background: #ff24a4;
+      color: rgb(248, 229, 215);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 30px;
+      overflow: hidden;
+    }
+
+    .heart {
+      font-size: 60px;
+      cursor: pointer;
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
+    .explode {
+      transform: scale(10);
+      opacity: 0;
+    }
+
+    .message {
+      opacity: 0;
+      transition: opacity 2s ease;
+      font-size: 16px;
+      margin-top: 30px;
+      padding: 0 50px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+
+    .message2 {
+      opacity: 0;
+      transition: opacity 2s ease;
+      font-size: 16px;
+      margin-top: 30px;
+      padding: 0 50px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+
+
+
+
+    .image {
+      opacity: 0;
+      transition: opacity 2s ease;
+      width: 250px;
+      height: auto;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+
+
+    
+
+    .show {
+      opacity: 1;
+    }
+
+    /* Floating heart styling */
+    .floating-heart {
+      position: absolute;
+      font-size: 24px;
+      animation: floatUp 1s ease-out forwards;
+      pointer-events: none;
+    }
+
+    /* Heart float animation */
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======= MAIN HEART BUTTON ======= -->
+  <div class="heart" id="heart">🍌❤️</div>
+
+  <!-- ======= IMAGE (hidden at start, clickable) ======= -->
+  <img src="ALIYAAH.jpg" alt="Aliyaah's Photo" class="image" id="image">
+
+  <!-- ======= LOVE MESSAGE (hidden at start) ======= -->
+  <div class="message" id="message">
+    Aliyaah, thank you for always being here with me. I know mahirap rin mga araw mo sa sarili mo, but I can assure you — you are safe here.  
+    Forever my Iya, my banana pie, I will always be here for you. The sound of the waves sa Tondaligan, the glare of the midnight sun —  
+    is the same as your staring eye deep to my soul. I will never forget everything about you.  
+    We are only students for now but my baby, we will walk through every problem. I'm with you now — no more running away, no more hiding.  
+    I love you just the way you are. You are kind, soft-hearted, amazing, smart — and no one like others, my love.  
+    You don't have to pretend. You don’t need to think you’re not safe with me.  
+    I’ll keep you warm in cold days, and I love every part of you.  
+    How can I unlove you when everything about you is perfect for me 
+    I love you 3000, Aliyaah.
+  </div>
+
+<div class="message2" id="message2"> 
+  
+  
+  
+  With you, everything is possible my love, give all the best of you in your journey to become a profesional nurse!!!!
+  No, you are not far behind from your journey, you are never failing my love, you are learning, learning to give, learning to live again
+  learing to let the best out of you in your life, and in my eyes it's the most beautiful event of my life, witnessing these success you executed
+  mga quizes na pinasa mo, mga exams, to knowing medical words that im unfamilliar with, sign that you are in the way of becoming who you wanna be
+  don't lose your good heart my baby, kahit anong sakit pa ibibigay nila, harsh reality, always remember na there will always be a reward
+  my love i'm so proud of you, keep doing the besttt, and it's normal to get exhausted rinn, wag ka manghinayang sa sarili my baby :>>
+  it's always the part of the life rin, we get tired, we rest, and we fight, all over again, i will never get tired of choosing you everyday
+  life is hard, love is hard, but i choose you not because it's hard, it's because of you, you make my life meaningful, i am enjoying my life now
+  i'm with you, i love you aliyaah
+
+
+
+</div>
+
+  <!-- ======= SCRIPT SECTION ======= -->
+  <script>
+    // === Select elements
+    const heart = document.getElementById('heart');
+    const message = document.getElementById('message');
+    const image = document.getElementById('image');
+
+    // === Heart explosion click event
+    heart.addEventListener('click', () => {
+      heart.classList.add('explode');
+
+      // Show message and image after 1 second
+      setTimeout(() => {
+        message.classList.add('show');
+        message2.classList.add('show');
+        image.classList.add('show');
+      }, 1000);
+    });
+
+    // === Image click event for unlimited floating hearts
+    image.addEventListener('click', (event) => {
+      // Create a heart element
+      const floatingHeart = document.createElement('div');
+      floatingHeart.classList.add('floating-heart');
+      floatingHeart.innerText = '❤️';
+
+      // Position heart at click location
+      floatingHeart.style.left = (event.clientX - 12) + 'px';
+      floatingHeart.style.top = (event.clientY - 24) + 'px';
+
+      // Add heart to body
+      document.body.appendChild(floatingHeart);
+
+      // Remove heart after animation (1 second)
+      setTimeout(() => {
+        floatingHeart.remove();
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
